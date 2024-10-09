@@ -4,7 +4,7 @@ public class Testes {
 
     public static void main(String[] args) {
 
-        System.out.println(evenGrayCode(5,5));;
+        System.out.println(evenGrayCode(6,5));;
 
     }
 
