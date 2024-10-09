@@ -7,20 +7,15 @@ public class MoveTen {
     }
 
     public static String fraseDeslocada(String frase){
-        StringBuilder fraseModificada = new StringBuilder();
-        for (int c = 0; c < frase.length(); c++){
-            char charAtual = frase.charAt(c);
-            int baseCharacter;
 
-            if (charAtual < 97)
-                baseCharacter = 65;
-            else
-                baseCharacter = 97;
+        StringBuilder fraseDeslocada = frase.chars().map((chr) -> {
+            if (chr < 97){
+                return (((chr + 10) % 65) % 26) + 65;
+            }else {
+                return (((chr + 10) % 90) % 26) + 97;
+            }
+        }).collect(StringBuilder::new, (sb, chr) -> sb.append((char) chr), StringBuilder::append);
 
-            char charDeslocado = (char) ((((charAtual + 10) % baseCharacter) % 26) + baseCharacter);
-            fraseModificada.append(charDeslocado);
-        }
-
-        return fraseModificada.toString();
+        return fraseDeslocada.toString();
     }
 }
