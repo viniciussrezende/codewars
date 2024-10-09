@@ -1,5 +1,7 @@
 package com.codewars.viniciussrezende.kyu_6.even_gray_code;
 
+import java.util.stream.Stream;
+
 public class EvenGrayCode {
 
     public static void main(String[] args) {
@@ -10,14 +12,7 @@ public class EvenGrayCode {
 
     public static int contarBitsUm(int binario){
         String binarioEmString = Integer.toBinaryString(binario);
-
-        int contador = 0;
-        for (int c = 0; c < binarioEmString.length(); c++){
-            if (binarioEmString.charAt(c) == '1')
-                contador++;
-        }
-
-        return contador;
+        return (int) binarioEmString.chars().filter(c -> c == '1').count();
     }
 
     public static String evenGrayCode(int size, int position) {
