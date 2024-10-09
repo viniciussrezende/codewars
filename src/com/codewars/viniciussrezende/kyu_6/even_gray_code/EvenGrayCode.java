@@ -1,12 +1,11 @@
 package com.codewars.viniciussrezende.kyu_6.even_gray_code;
 
-import java.util.stream.Stream;
 
 public class EvenGrayCode {
 
     public static void main(String[] args) {
 
-        System.out.println(evenGrayCode(5,5));;
+        System.out.println(evenGrayCode(5,5));
 
     }
 
@@ -17,11 +16,11 @@ public class EvenGrayCode {
 
     public static String evenGrayCode(int size, int position) {
 
-        int base = 0, contadorEvenGrayCode = 0;
-        for (int contador = 0; contadorEvenGrayCode <= position; contador++){
-            if (contarBitsUm(base^contador) % 2 == 0){
-                base = contador;
-                contadorEvenGrayCode++;
+        int base = 0, posicaoAtual = 0;
+        for (int candidato = 0; posicaoAtual <= position; candidato++){
+            if (contarBitsUm(base^candidato) % 2 == 0){
+                base = candidato;
+                posicaoAtual++;
             }
         }
 
